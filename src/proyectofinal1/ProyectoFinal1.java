@@ -2,7 +2,6 @@
 package proyectofinal1;
 
 import javax.swing.UIManager;
-import vista.frmInventario;
 import vista.frmLoginn;
 
 
@@ -17,13 +16,7 @@ public class ProyectoFinal1 {
             e.printStackTrace();
         }
         frmLoginn objlog =  new frmLoginn();
-        objlog.setVisible(true);
-        
-        frmInventario objInvent =  new frmInventario();
-        objInvent.setVisible(true);
-        
-        
-        
+        objlog.setVisible(true);     
     }
     
 }
