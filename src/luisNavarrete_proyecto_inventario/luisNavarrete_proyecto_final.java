@@ -1,11 +1,11 @@
 
-package proyectofinal1;
+package luisNavarrete_proyecto_inventario;
 
 import javax.swing.UIManager;
 import vista.frmLoginn;
 
 
-public class ProyectoFinal1 {
+public class luisNavarrete_proyecto_final {
 
    
     public static void main(String[] args) {
