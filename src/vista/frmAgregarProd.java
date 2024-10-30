@@ -15,6 +15,11 @@ public class frmAgregarProd extends javax.swing.JFrame {
      */
     public frmAgregarProd() {
         initComponents();
+        setSize(600,500);
+        setLayout(null);
+        setResizable(false);
+        
+        setTitle("Ventana de productos...");
     }
 
     /**
@@ -27,40 +32,42 @@ public class frmAgregarProd extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblTituloProducto = new javax.swing.JLabel();
+        lblIdProducto = new javax.swing.JLabel();
+        txtIdProducto = new javax.swing.JTextField();
+        lblNombreProducto = new javax.swing.JLabel();
+        txtNombreProducto = new javax.swing.JTextField();
+        lblLoteProductos = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
+        txtLoteProducto = new javax.swing.JTextField();
+        txtFecha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 6, -1, -1));
 
-        jLabel1.setText("Agregar Producto");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        lblTituloProducto.setFont(new java.awt.Font("Segoe UI Symbol", 1, 36)); // NOI18N
+        lblTituloProducto.setText("Productos:");
+        jPanel1.add(lblTituloProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 200, 50));
 
-        jLabel3.setText("Nombre Producto");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+        lblIdProducto.setText("Id Producto: ");
+        jPanel1.add(lblIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 90, 30));
+        jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 110, -1));
 
-        jLabel4.setText("Cantidad");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+        lblNombreProducto.setText("Nombre Producto:");
+        jPanel1.add(lblNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 120, 20));
+        jPanel1.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 110, -1));
 
-        jLabel5.setText("Lote");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        lblLoteProductos.setText("Lote Productos: ");
+        jPanel1.add(lblLoteProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 110, 20));
 
-        jLabel6.setText("Valor");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
+        lblFecha.setText("Fecha:");
+        jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 80, -1));
+        jPanel1.add(txtLoteProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 130, -1));
+        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 100, -1));
 
-        jLabel7.setText("Fecha Ingreso");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
-
-        jLabel2.setText("ID Producto");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 80, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -101,13 +108,15 @@ public class frmAgregarProd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblIdProducto;
+    private javax.swing.JLabel lblLoteProductos;
+    private javax.swing.JLabel lblNombreProducto;
+    private javax.swing.JLabel lblTituloProducto;
+    private javax.swing.JTextField txtFecha;
+    private javax.swing.JTextField txtIdProducto;
+    private javax.swing.JTextField txtLoteProducto;
+    private javax.swing.JTextField txtNombreProducto;
     // End of variables declaration//GEN-END:variables
 }
