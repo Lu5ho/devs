@@ -65,6 +65,12 @@ public class frmMenu extends javax.swing.JFrame {
 
         lblActividad.setText("Actividad:");
         jPanel1.add(lblActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
+
+        txtIdUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdUsuarioActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 110, -1));
         jPanel1.add(txtNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 100, -1));
         jPanel1.add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 110, -1));
@@ -83,6 +89,10 @@ public class frmMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
