@@ -4,7 +4,13 @@
  */
 package vista;
 
+import Modelo.Conexion;
+import dto.UsuariosDto;
 import javax.swing.JOptionPane;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -79,14 +85,47 @@ public class frmLoginn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        if (txtCorreo.getText().equals("root") && txtPass.getText().equals("root")) {
+
+        List<UsuariosDto> listaUsuarios = new ArrayList<>();
+
+        try {
+            Conexion objConexion = new Conexion();
+            Statement datosUsuario = objConexion.establecerConexion().createStatement();
+            ResultSet dtoUser = datosUsuario.executeQuery("SELECT * FROM usuarios;");
+
+            while (dtoUser.next()) {
+
+                UsuariosDto usr = new UsuariosDto();
+                usr.setUsuario(dtoUser.getString("usu_usuario"));
+                usr.setContraseña(dtoUser.getString("usu_contraseña"));
+                usr.setRol(dtoUser.getString("usu_rol"));
+                usr.setActividad(dtoUser.getString("usu_actividad"));
+
+                listaUsuarios.add(usr);
+
+            }
+            dtoUser.close();
+            datosUsuario.close();
+            objConexion.cerrarConexion();
+
+        } catch (Exception e) {
+        }
+        boolean credencialesValidas = false;
+        for (UsuariosDto usuario : listaUsuarios) {
+            if (txtCorreo.getText().equals(usuario.getUsuario()) && txtPass.getText().equals(usuario.getContraseña())) {
+                credencialesValidas = true;
+                break;
+            }
+        }
+
+        if (credencialesValidas) {
             frmMenu objMenu = new frmMenu();
             objMenu.setVisible(true);
-            this.dispose();
+            this.dispose(); // Cierra el formulario actual
         } else {
-
             JOptionPane.showMessageDialog(this, "CREDENCIALES INVALIDAS");
         }
+
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**

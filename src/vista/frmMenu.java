@@ -4,6 +4,13 @@
  */
 package vista;
 
+import Modelo.Conexion;
+import dto.UsuariosDto;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author neira
@@ -22,6 +29,7 @@ public class frmMenu extends javax.swing.JFrame {
         setTitle("Ventana Menu..");
     }
 
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,17 +41,15 @@ public class frmMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblTituloMenu = new javax.swing.JLabel();
-        lblIdUsu = new javax.swing.JLabel();
         lblNombreUsu = new javax.swing.JLabel();
         lblRol = new javax.swing.JLabel();
         lblActividad = new javax.swing.JLabel();
-        txtIdUsuario = new javax.swing.JTextField();
-        txtNombreUsu = new javax.swing.JTextField();
-        txtRol = new javax.swing.JTextField();
-        txtActividad = new javax.swing.JTextField();
         btnCerrarSesion = new javax.swing.JButton();
         btnListaProducto = new javax.swing.JButton();
         btnAgregarProducto = new javax.swing.JButton();
+        txtUsuario = new javax.swing.JTextField();
+        txtActividad = new javax.swing.JTextField();
+        txtRol = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,21 +60,14 @@ public class frmMenu extends javax.swing.JFrame {
         lblTituloMenu.setText("\"Bienvenido al Inventario\"");
         jPanel1.add(lblTituloMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 450, 50));
 
-        lblIdUsu.setText("Id Usuario:");
-        jPanel1.add(lblIdUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 90, 20));
-
         lblNombreUsu.setText("Nombre Usuario:");
-        jPanel1.add(lblNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
+        jPanel1.add(lblNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         lblRol.setText("Rol:");
-        jPanel1.add(lblRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 70, -1));
+        jPanel1.add(lblRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, -1));
 
         lblActividad.setText("Actividad:");
-        jPanel1.add(lblActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
-        jPanel1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 110, -1));
-        jPanel1.add(txtNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 100, -1));
-        jPanel1.add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 110, -1));
-        jPanel1.add(txtActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 100, -1));
+        jPanel1.add(lblActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         btnCerrarSesion.setText("Cerrar sesion.");
         jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 180, 50));
@@ -77,12 +76,63 @@ public class frmMenu extends javax.swing.JFrame {
         jPanel1.add(btnListaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 180, 50));
 
         btnAgregarProducto.setText("Agregar Producto.");
+        btnAgregarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarProductoMouseClicked(evt);
+            }
+        });
+        btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarProductoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 180, 50));
+
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, -1));
+        jPanel1.add(txtActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, -1));
+        jPanel1.add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 110, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 690, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
+        
+    }//GEN-LAST:event_btnAgregarProductoActionPerformed
+
+    private void btnAgregarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProductoMouseClicked
+        frmAgregarProd objAgregarProd = new frmAgregarProd();
+            objAgregarProd.setVisible(true);
+    }//GEN-LAST:event_btnAgregarProductoMouseClicked
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        List<UsuariosDto> listaUsuarios = new ArrayList<>();
+
+        try {
+            Conexion objConexion = new Conexion();
+            Statement datosUsuario = objConexion.establecerConexion().createStatement();
+            ResultSet dtoUser = datosUsuario.executeQuery("SELECT usu_usuarios FROM usuarios ;");
+
+            while (dtoUser.next()) {
+
+                UsuariosDto usr = new UsuariosDto();
+                usr.setUsuario(dtoUser.getString("usu_usuario"));
+                 listaUsuarios.add(usr);
+
+            }
+            dtoUser.close();
+            datosUsuario.close();
+            objConexion.cerrarConexion();
+
+        } catch (Exception e) {
+        }        
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,13 +175,11 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnListaProducto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblActividad;
-    private javax.swing.JLabel lblIdUsu;
     private javax.swing.JLabel lblNombreUsu;
     private javax.swing.JLabel lblRol;
     private javax.swing.JLabel lblTituloMenu;
     private javax.swing.JTextField txtActividad;
-    private javax.swing.JTextField txtIdUsuario;
-    private javax.swing.JTextField txtNombreUsu;
     private javax.swing.JTextField txtRol;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
