@@ -27,6 +27,7 @@ public class frmLoginn extends javax.swing.JFrame {
         setLayout(null);
         setResizable(false);
         setTitle("Login....");
+        setLocationRelativeTo(null);
     }
 
     /**

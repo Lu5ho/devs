@@ -22,14 +22,14 @@ public class frmMenu extends javax.swing.JFrame {
      */
     public frmMenu() {
         initComponents();
-        setSize(700,600);
+        setSize(700, 600);
         setResizable(false);
         setLayout(null);
-        
+        setLocationRelativeTo(null);
+
         setTitle("Ventana Menu..");
     }
 
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,12 +103,12 @@ public class frmMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-        
+
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     private void btnAgregarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProductoMouseClicked
         frmAgregarProd objAgregarProd = new frmAgregarProd();
-            objAgregarProd.setVisible(true);
+        objAgregarProd.setVisible(true);
     }//GEN-LAST:event_btnAgregarProductoMouseClicked
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
@@ -123,7 +123,7 @@ public class frmMenu extends javax.swing.JFrame {
 
                 UsuariosDto usr = new UsuariosDto();
                 usr.setUsuario(dtoUser.getString("usu_usuario"));
-                 listaUsuarios.add(usr);
+                listaUsuarios.add(usr);
 
             }
             dtoUser.close();
@@ -131,7 +131,7 @@ public class frmMenu extends javax.swing.JFrame {
             objConexion.cerrarConexion();
 
         } catch (Exception e) {
-        }        
+        }
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
