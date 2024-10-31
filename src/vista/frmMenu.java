@@ -16,6 +16,10 @@ public class frmMenu extends javax.swing.JFrame {
     public frmMenu() {
         initComponents();
         setSize(700,600);
+        setResizable(false);
+        setLayout(null);
+        
+        setTitle("Ventana Menu..");
     }
 
     /**
@@ -28,62 +32,57 @@ public class frmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        btnAgregarProducto = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        btnEliminarProducto = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        lblTituloMenu = new javax.swing.JLabel();
+        lblIdUsu = new javax.swing.JLabel();
+        lblNombreUsu = new javax.swing.JLabel();
+        lblRol = new javax.swing.JLabel();
+        lblActividad = new javax.swing.JLabel();
+        txtIdUsuario = new javax.swing.JTextField();
+        txtNombreUsu = new javax.swing.JTextField();
+        txtRol = new javax.swing.JTextField();
+        txtActividad = new javax.swing.JTextField();
         btnCerrarSesion = new javax.swing.JButton();
+        btnListaProducto = new javax.swing.JButton();
+        btnAgregarProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Bienvenido! ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 6, -1, 34));
+        lblTituloMenu.setFont(new java.awt.Font("Segoe UI Historic", 1, 36)); // NOI18N
+        lblTituloMenu.setText("\"Bienvenido al Inventario\"");
+        jPanel1.add(lblTituloMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 450, 50));
 
-        btnAgregarProducto.setText("Agregar Producto");
-        btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarProductoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, -1));
+        lblIdUsu.setText("Id Usuario:");
+        jPanel1.add(lblIdUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 90, 20));
 
-        jButton2.setText("Modificar Producto");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 140, -1));
+        lblNombreUsu.setText("Nombre Usuario:");
+        jPanel1.add(lblNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
 
-        btnEliminarProducto.setText("Eliminar Producto");
-        jPanel1.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 140, -1));
+        lblRol.setText("Rol:");
+        jPanel1.add(lblRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 70, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
+        lblActividad.setText("Actividad:");
+        jPanel1.add(lblActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
+        jPanel1.add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 110, -1));
+        jPanel1.add(txtNombreUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 100, -1));
+        jPanel1.add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 110, -1));
+        jPanel1.add(txtActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 100, -1));
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 660, 260));
+        btnCerrarSesion.setText("Cerrar sesion.");
+        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 180, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 360));
+        btnListaProducto.setText("Lista de Productos.");
+        jPanel1.add(btnListaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 180, 50));
 
-        btnCerrarSesion.setText("Cerrar Sesion");
-        getContentPane().add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, -1, -1));
+        btnAgregarProducto.setText("Agregar Producto.");
+        jPanel1.add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 180, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 690, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,11 +122,16 @@ public class frmMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarProducto;
     private javax.swing.JButton btnCerrarSesion;
-    private javax.swing.JButton btnEliminarProducto;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnListaProducto;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblActividad;
+    private javax.swing.JLabel lblIdUsu;
+    private javax.swing.JLabel lblNombreUsu;
+    private javax.swing.JLabel lblRol;
+    private javax.swing.JLabel lblTituloMenu;
+    private javax.swing.JTextField txtActividad;
+    private javax.swing.JTextField txtIdUsuario;
+    private javax.swing.JTextField txtNombreUsu;
+    private javax.swing.JTextField txtRol;
     // End of variables declaration//GEN-END:variables
 }
