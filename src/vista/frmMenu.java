@@ -22,7 +22,7 @@ public class frmMenu extends javax.swing.JFrame {
      */
     public frmMenu() {
         initComponents();
-        setSize(700, 600);
+        setSize(700, 500);
         setResizable(false);
         setLayout(null);
         setLocationRelativeTo(null);
@@ -46,10 +46,12 @@ public class frmMenu extends javax.swing.JFrame {
         lblActividad = new javax.swing.JLabel();
         btnCerrarSesion = new javax.swing.JButton();
         btnListaProducto = new javax.swing.JButton();
-        btnAgregarProducto = new javax.swing.JButton();
+        btnModificarProcto = new javax.swing.JButton();
         txtUsuario = new javax.swing.JTextField();
         txtActividad = new javax.swing.JTextField();
         txtRol = new javax.swing.JTextField();
+        btnAgregarProducto1 = new javax.swing.JButton();
+        btnQuitarProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,18 +77,18 @@ public class frmMenu extends javax.swing.JFrame {
         btnListaProducto.setText("Lista de Productos.");
         jPanel1.add(btnListaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 180, 50));
 
-        btnAgregarProducto.setText("Agregar Producto.");
-        btnAgregarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnModificarProcto.setText("Modificar Producto.");
+        btnModificarProcto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarProductoMouseClicked(evt);
+                btnModificarProctoMouseClicked(evt);
             }
         });
-        btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarProcto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarProductoActionPerformed(evt);
+                btnModificarProctoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 180, 50));
+        jPanel1.add(btnModificarProcto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 180, 50));
 
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,19 +99,47 @@ public class frmMenu extends javax.swing.JFrame {
         jPanel1.add(txtActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, -1));
         jPanel1.add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 110, -1));
 
+        btnAgregarProducto1.setText("Agregar Producto.");
+        btnAgregarProducto1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarProducto1MouseClicked(evt);
+            }
+        });
+        btnAgregarProducto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarProducto1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregarProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 180, 50));
+
+        btnQuitarProducto.setText("Quitar Producto.");
+        btnQuitarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnQuitarProductoMouseClicked(evt);
+            }
+        });
+        btnQuitarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuitarProductoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnQuitarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 180, 50));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 690, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
+    private void btnModificarProctoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProctoActionPerformed
 
-    }//GEN-LAST:event_btnAgregarProductoActionPerformed
+    }//GEN-LAST:event_btnModificarProctoActionPerformed
 
-    private void btnAgregarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProductoMouseClicked
-        frmAgregarProd objAgregarProd = new frmAgregarProd();
-        objAgregarProd.setVisible(true);
-    }//GEN-LAST:event_btnAgregarProductoMouseClicked
+    private void btnModificarProctoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarProctoMouseClicked
+        frmModificar objModifi = new frmModificar();
+        objModifi.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnModificarProctoMouseClicked
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         List<UsuariosDto> listaUsuarios = new ArrayList<>();
@@ -131,8 +161,30 @@ public class frmMenu extends javax.swing.JFrame {
             objConexion.cerrarConexion();
 
         } catch (Exception e) {
+            System.out.println("Usuario desconocido...");
         }
+
     }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void btnAgregarProducto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProducto1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarProducto1MouseClicked
+
+    private void btnAgregarProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProducto1ActionPerformed
+        frmAgregarProd objAgregarProd = new frmAgregarProd();
+        objAgregarProd.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAgregarProducto1ActionPerformed
+
+    private void btnQuitarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuitarProductoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQuitarProductoMouseClicked
+
+    private void btnQuitarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarProductoActionPerformed
+        frmQuitar objQuitar = new frmQuitar();
+        objQuitar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnQuitarProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,9 +222,11 @@ public class frmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarProducto;
+    private javax.swing.JButton btnAgregarProducto1;
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnListaProducto;
+    private javax.swing.JButton btnModificarProcto;
+    private javax.swing.JButton btnQuitarProducto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblActividad;
     private javax.swing.JLabel lblNombreUsu;

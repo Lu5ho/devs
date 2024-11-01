@@ -8,19 +8,19 @@ package vista;
  *
  * @author neira
  */
-public class frmAgregarProd extends javax.swing.JFrame {
+public class frmModificar extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmAgregarProd
+     * Creates new form frmModificar
      */
-    public frmAgregarProd() {
+    public frmModificar() {
         initComponents();
-        setSize(600,500);
+        setSize(600, 500);
         setLayout(null);
         setResizable(false);
         setLocationRelativeTo(null);
-        
-        setTitle("Ventana de productos...");
+
+        setTitle("ventana Modificar...");
     }
 
     /**
@@ -32,11 +32,7 @@ public class frmAgregarProd extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlProductos = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        lblTituloProducto = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JButton();
-        btnAgregarBd = new javax.swing.JButton();
         pnlDetalle = new javax.swing.JPanel();
         lblCantidad = new javax.swing.JLabel();
         txtCantidadProd = new javax.swing.JTextField();
@@ -50,28 +46,14 @@ public class frmAgregarProd extends javax.swing.JFrame {
         txtLoteProducto = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
-
-        pnlProductos.setBorder(javax.swing.BorderFactory.createTitledBorder("Productos Dispo"));
+        lblTituloModif = new javax.swing.JLabel();
+        btnModificarBd = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTituloProducto.setFont(new java.awt.Font("Segoe UI Symbol", 1, 36)); // NOI18N
-        lblTituloProducto.setText("Agregar Productos:");
-        jPanel1.add(lblTituloProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 350, 50));
-
-        btnVolver.setText("Volver al Menu");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 140, 40));
-
-        btnAgregarBd.setText("Agregar producto");
-        jPanel1.add(btnAgregarBd, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 140, 40));
 
         pnlDetalle.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalle de producto"));
         pnlDetalle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,15 +82,32 @@ public class frmAgregarProd extends javax.swing.JFrame {
         lblFecha.setText("Fecha:");
         pnlDetalle.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 80, -1));
 
-        jPanel1.add(pnlDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 540, 250));
+        jPanel1.add(pnlDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 540, 250));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 750, 640));
+        lblTituloModif.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
+        lblTituloModif.setText("Modificar Producto:");
+        jPanel1.add(lblTituloModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 340, 60));
+
+        btnModificarBd.setText("Modificar producto");
+        btnModificarBd.setToolTipText("");
+        jPanel1.add(btnModificarBd, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 140, 40));
+
+        btnVolver.setText("Volver al Menu");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 140, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 660, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        frmMenu objMenu  = new frmMenu();
+        
+        frmMenu objMenu = new frmMenu();
         objMenu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -130,26 +129,26 @@ public class frmAgregarProd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarProd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarProd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarProd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmAgregarProd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmAgregarProd().setVisible(true);
+                new frmModificar().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarBd;
+    private javax.swing.JButton btnModificarBd;
     private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCantidad;
@@ -157,10 +156,9 @@ public class frmAgregarProd extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdProducto;
     private javax.swing.JLabel lblLoteProductos;
     private javax.swing.JLabel lblNombreProducto;
-    private javax.swing.JLabel lblTituloProducto;
+    private javax.swing.JLabel lblTituloModif;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel pnlDetalle;
-    private javax.swing.JPanel pnlProductos;
     private javax.swing.JTextField txtCantidadProd;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtIdProducto;
