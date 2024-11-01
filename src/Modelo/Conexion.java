@@ -14,11 +14,10 @@ import java.sql.SQLException;
  */
 public class Conexion {
     
-    String bd = "";
-    String url = "";
-    String usr = "";
-    String pass = "";
-    
+    String bd = "db_invetario";
+    String url = "jdbc:mysql://localhost:3306/"+bd;
+    String usr = "root";
+    String pass = "";   
     Connection estadoConexion = null;
     
     public Connection establecerConexion(){
@@ -30,5 +29,16 @@ public class Conexion {
             System.err.println("Error :" + error.getMessage());
         }
         return estadoConexion;
-    }       
+    }     
+    
+    public void cerrarConexion(){
+        try {
+            if(estadoConexion != null){
+                estadoConexion.close();
+                System.out.println("Conexión Cerrada");
+            }
+        } catch (Exception e) {
+            System.err.println("error");
+        }
+    }
 }
