@@ -72,6 +72,11 @@ public class frmMenu extends javax.swing.JFrame {
         jPanel1.add(lblActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         btnCerrarSesion.setText("Cerrar sesion.");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 180, 50));
 
         btnListaProducto.setText("Lista de Productos.");
@@ -185,6 +190,12 @@ public class frmMenu extends javax.swing.JFrame {
         objQuitar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnQuitarProductoActionPerformed
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        frmLoginn objLog= new frmLoginn();
+        objLog.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
