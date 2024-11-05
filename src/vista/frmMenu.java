@@ -17,17 +17,36 @@ import java.util.List;
  */
 public class frmMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmMenu
-     */
-    public frmMenu() {
+    private UsuariosDto objUsuarioActual;
+
+    public frmMenu(UsuariosDto usuarioActivo) {
+
         initComponents();
         setSize(700, 500);
         setResizable(false);
         setLayout(null);
         setLocationRelativeTo(null);
 
+        
         setTitle("Ventana Menu..");
+
+        this.objUsuarioActual = usuarioActivo;
+        cargarDatosUsuario();
+
+    }
+
+    public frmMenu() {
+        this(new UsuariosDto());
+    }
+
+    private void cargarDatosUsuario() {
+        if (objUsuarioActual != null) {
+            txtUsuario.setText(objUsuarioActual.getUsuario());
+            txtActividad.setText(objUsuarioActual.getActividad());
+            txtRol.setText(objUsuarioActual.getRol());
+
+        }
+
     }
 
     /**
@@ -95,13 +114,18 @@ public class frmMenu extends javax.swing.JFrame {
         });
         jPanel1.add(btnModificarProcto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 180, 50));
 
+        txtUsuario.setEnabled(false);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, -1));
+
+        txtActividad.setEnabled(false);
         jPanel1.add(txtActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, -1));
+
+        txtRol.setEnabled(false);
         jPanel1.add(txtRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 110, -1));
 
         btnAgregarProducto1.setText("Agregar Producto.");
@@ -168,7 +192,6 @@ public class frmMenu extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Usuario desconocido...");
         }
-
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnAgregarProducto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProducto1MouseClicked
@@ -192,7 +215,7 @@ public class frmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuitarProductoActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-        frmLoginn objLog= new frmLoginn();
+        frmLoginn objLog = new frmLoginn();
         objLog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
