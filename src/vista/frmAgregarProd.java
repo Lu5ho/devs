@@ -40,8 +40,6 @@ public class frmAgregarProd extends javax.swing.JFrame {
         pnlDetalle = new javax.swing.JPanel();
         lblCantidad = new javax.swing.JLabel();
         txtCantidadProd = new javax.swing.JTextField();
-        lblTotal = new javax.swing.JLabel();
-        txtTotalProd = new javax.swing.JTextField();
         txtIdProducto = new javax.swing.JTextField();
         txtMarcaProducto = new javax.swing.JTextField();
         lblIdProducto = new javax.swing.JLabel();
@@ -50,6 +48,8 @@ public class frmAgregarProd extends javax.swing.JFrame {
         txtLoteProducto = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        txtTotalProd = new javax.swing.JTextField();
 
         pnlProductos.setBorder(javax.swing.BorderFactory.createTitledBorder("Productos Dispo"));
 
@@ -82,12 +82,8 @@ public class frmAgregarProd extends javax.swing.JFrame {
         pnlDetalle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblCantidad.setText("Cantidad:");
-        pnlDetalle.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 100, 30));
-        pnlDetalle.add(txtCantidadProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 100, -1));
-
-        lblTotal.setText("Total en bodega:");
-        pnlDetalle.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 100, 30));
-        pnlDetalle.add(txtTotalProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 100, -1));
+        pnlDetalle.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 100, 20));
+        pnlDetalle.add(txtCantidadProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 100, -1));
         pnlDetalle.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 110, -1));
         pnlDetalle.add(txtMarcaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 110, -1));
 
@@ -95,19 +91,23 @@ public class frmAgregarProd extends javax.swing.JFrame {
         pnlDetalle.add(lblIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 90, 30));
 
         lblNombreProducto.setText("Nombre Producto:");
-        pnlDetalle.add(lblNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 120, 20));
+        pnlDetalle.add(lblNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 120, 20));
 
         lblLoteProductos.setText("Lote Productos: ");
-        pnlDetalle.add(lblLoteProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 110, 20));
-        pnlDetalle.add(txtLoteProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 110, -1));
-        pnlDetalle.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 100, -1));
+        pnlDetalle.add(lblLoteProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 110, 20));
+        pnlDetalle.add(txtLoteProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 110, -1));
+        pnlDetalle.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 100, -1));
 
         lblFecha.setText("Fecha:");
-        pnlDetalle.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 80, -1));
+        pnlDetalle.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 80, -1));
 
         jPanel1.add(pnlDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 540, 250));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 750, 640));
+        lblTotal.setText("Total en bodega:");
+        jPanel1.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 100, 30));
+        jPanel1.add(txtTotalProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 100, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

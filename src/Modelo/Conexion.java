@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class Conexion {
     
-    String bd = "db_invetario";
+    String bd = "db_inventario";
     String url = "jdbc:mysql://localhost:3306/"+bd;
     String usr = "root";
     String pass = "";   

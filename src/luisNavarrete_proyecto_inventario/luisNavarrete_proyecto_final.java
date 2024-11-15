@@ -19,4 +19,5 @@ public class luisNavarrete_proyecto_final {
         objlog.setVisible(true);     
     }
     
+    
 }
