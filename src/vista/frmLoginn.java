@@ -7,7 +7,7 @@ package vista;
 import Modelo.Conexion;
 import dto.UsuariosDto;
 import javax.swing.JOptionPane;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +47,8 @@ public class frmLoginn extends javax.swing.JFrame {
         lblCooreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         lblPass = new javax.swing.JLabel();
-        txtPass = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
+        txtPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,11 +64,16 @@ public class frmLoginn extends javax.swing.JFrame {
 
         lblCooreo.setText("Correo Electronico:");
         pnlFondo.add(lblCooreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 110, 20));
+
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
         pnlFondo.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 160, -1));
 
         lblPass.setText("Contraseña:");
         pnlFondo.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 80, -1));
-        pnlFondo.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 160, -1));
 
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +82,7 @@ public class frmLoginn extends javax.swing.JFrame {
             }
         });
         pnlFondo.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 130, 30));
+        pnlFondo.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 160, -1));
 
         jPanel1.add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 570));
 
@@ -91,8 +97,11 @@ public class frmLoginn extends javax.swing.JFrame {
 
         try {
             Conexion objConexion = new Conexion();
-            Statement datosUsuario = objConexion.establecerConexion().createStatement();
-            ResultSet dtoUser = datosUsuario.executeQuery("SELECT * FROM usuarios;");
+            String consulta = "SELECT * FROM usuarios WHERE usu_usuario = ?";
+            PreparedStatement datosUsuario = objConexion.establecerConexion().prepareStatement(consulta);
+
+            datosUsuario.setString(1, txtCorreo.getText());
+            ResultSet dtoUser = datosUsuario.executeQuery();
 
             while (dtoUser.next()) {
 
@@ -110,24 +119,33 @@ public class frmLoginn extends javax.swing.JFrame {
             objConexion.cerrarConexion();
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
         boolean credencialesValidas = false;
+        UsuariosDto usuarioActivo = null;
         for (UsuariosDto usuario : listaUsuarios) {
             if (txtCorreo.getText().equals(usuario.getUsuario()) && txtPass.getText().equals(usuario.getContraseña())) {
                 credencialesValidas = true;
+                if (usuario.getActividad().equals("activo")) {
+                    usuarioActivo = usuario;
+                    frmMenu objMenu = new frmMenu(usuarioActivo);
+                    objMenu.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Usuario se emcuentra inactivo...");
+                }
+                break;
+            } else {
+                JOptionPane.showMessageDialog(this, "credenciales Invalidas");
                 break;
             }
         }
 
-        if (credencialesValidas) {
-            frmMenu objMenu = new frmMenu();
-            objMenu.setVisible(true);
-            this.dispose(); // Cierra el formulario actual
-        } else {
-            JOptionPane.showMessageDialog(this, "CREDENCIALES INVALIDAS");
-        }
-
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,6 +167,6 @@ public class frmLoginn extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlFondo;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField txtPass;
     // End of variables declaration//GEN-END:variables
 }
